@@ -7,7 +7,7 @@
     border-radius: 8px;
 }
 button{
-    gap: 6px;
+    margin-left: 6px;
     text-align: center;
     width: 70px;
     height: 70px;
@@ -17,7 +17,7 @@ button{
     box-sizing: border-box;
     color: rgb(71, 71, 71);
     border-radius: 35px;
-    box-shadow: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 .display{
     display: flex;
@@ -26,12 +26,15 @@ button{
     align-items: flex-end;
     width: 280px;
     height: 45px;
+    font-size: 35px;
+    text-shadow: 3px;
     margin: 8px;
     padding: 12px;
     color: white;
     background-color: rgb(129, 129, 129);
     box-shadow: 18px;
     border: 1px solid rgb(165, 163, 163);
+    border-radius: 3px;
 }
 .op{
     text-align: center;
@@ -64,5 +67,9 @@ button{
     color:white;
 }
 button:hover{
-    transform: translateY(-3px);     
+    transform: scale(0.98);     
+}
+.op:active{
+    background-color: orange;
+    filter: brightness(0.9);
 }
