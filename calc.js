@@ -1,3 +1,7 @@
+let current = '0';
+let firstNumber = null;
+let operatord = null;
+let displayReset = false;
 function operate(num1, operator, num2){
     const firstNumber = num1;
     const secondNumber = num2;
@@ -21,3 +25,79 @@ function operate(num1, operator, num2){
         return "Invalid operator";
     }
 }
+const element = document.querySelector('.display');
+function displayUpdate(value){
+    element.value = value;
+}
+function clicked(number){
+    if(displayReset === true){
+        current ='0';
+    }
+    if(current ==='0'){
+        current = number;
+    }
+    else{
+        current += number;
+    }
+    displayUpdate(current);
+    displayReset = false;
+}
+function operators(op){
+    operatord = op;
+    if(firstNumber !== null){
+        const result = operate(firstNumber,operatord, parseFloat(current));
+        firstNumber = result;
+        displayReset = true;
+        displayUpdate(result);
+    }
+    else{
+        firstNumber = parseFloat(current);
+    }
+}
+function equalsTo(){
+    if(firstNumber!== null && operatord!== null){
+        result = operate(firstNumber,operatord,parseFloat(current));
+        displayUpdate(result);
+        displayReset = true;
+        firstNumber = null;
+        operatord= null;
+    }
+}
+function clear(){
+    current = '0';
+    firstNumber = null;
+    operatord = null;
+    displayReset = false;
+    displayUpdate(current);
+}
+function decimal(){
+    if(displayReset){
+        current = '0.';
+        displayReset = false;
+    }
+    else if(!current.includes('.')){
+        current +='.';
+    }
+    displayUpdate(current);
+}
+
+const buttons = document.querySelectorAll('.num');
+buttons.addEventListener('click', function(e){
+    e.target=clicked(number);
+});
+const oper = document.querySelectorAll('.op');
+oper.addEventListener('click', function(e){
+    e.target = clicked(operator);
+});
+const Equal = document.querySelectorAll('.equal');
+Equal.addEventListener('click', function(e){
+    e.target = equalsTo();
+})
+const cleares = document.querySelectorAll('.clear');
+cleares.addEventListener('click', function(e){
+    e.target = clear();
+})
+const dots = document.querySelectorAll('.dot');
+dots.addEventListener('click', function(e){
+    e.target = decimal();
+})
