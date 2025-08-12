@@ -22,7 +22,7 @@ function operate(num1, operator, num2){
         }
     }
     else{
-        return "Invalid operator";
+        return "Invalid operator!";
     }
 }
 const element = document.querySelector('.display');
@@ -82,22 +82,31 @@ function decimal(){
 }
 
 const buttons = document.querySelectorAll('.num');
-buttons.addEventListener('click', function(e){
-    e.target=clicked(number);
+buttons.forEach(k =>{
+    k.addEventListener('click', function(e){
+        const number = e.target.textContent;
+    clicked(number);
+});
 });
 const oper = document.querySelectorAll('.op');
-oper.addEventListener('click', function(e){
-    e.target = clicked(operator);
+oper.forEach(o=>{
+    o.addEventListener('click', function(e){
+        const opr = e.target.textContent; 
+         operators(opr);
+         displayReset= true;
 });
-const Equal = document.querySelectorAll('.equal');
-Equal.addEventListener('click', function(e){
-    e.target = equalsTo();
-})
-const cleares = document.querySelectorAll('.clear');
-cleares.addEventListener('click', function(e){
-    e.target = clear();
-})
-const dots = document.querySelectorAll('.dot');
-dots.addEventListener('click', function(e){
-    e.target = decimal();
-})
+});
+
+const Equal = document.querySelector('.equal');
+Equal.addEventListener('click', function(){
+    equalsTo();
+});
+
+const cleares = document.querySelector('.clear');
+cleares.addEventListener('click', function(){
+    clear();
+});
+const dots = document.querySelector('.dot');
+dots.addEventListener('click', function(){
+    decimal();
+});
