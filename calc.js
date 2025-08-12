@@ -2,6 +2,7 @@ let current = '0';
 let firstNumber = null;
 let operatord = null;
 let displayReset = false;
+let memory = null;
 function operate(num1, operator, num2){
     const firstNumber = num1;
     const secondNumber = num2;
@@ -22,7 +23,7 @@ function operate(num1, operator, num2){
         }
     }
     else{
-        return "Invalid operator!";
+        return "Error!";
     }
 }
 const element = document.querySelector('.display');
@@ -54,6 +55,15 @@ function operators(op){
         firstNumber = parseFloat(current);
     }
 }
+function percentage(){
+    if(current === '0' || current === null){
+        return ;
+    }
+   const store= parseFloat(current);
+   const percent = store/100;
+   current = percent;
+   displayUpdate(current);
+}
 function equalsTo(){
     if(firstNumber!== null && operatord!== null){
         result = operate(firstNumber,operatord,parseFloat(current));
@@ -70,6 +80,10 @@ function clear(){
     displayReset = false;
     displayUpdate(current);
 }
+function MC(){
+    memory = null;
+    displayUpdate('0');
+}
 function decimal(){
     if(displayReset){
         current = '0.';
@@ -80,7 +94,17 @@ function decimal(){
     }
     displayUpdate(current);
 }
-
+function sign(){
+    if(current === '0' || current === null){
+        return;
+    }
+    if(current.startsWith('-')){
+       current= current.slice(1);
+    }
+    else{
+      current= '-' + current;
+    }
+}
 const buttons = document.querySelectorAll('.num');
 buttons.forEach(k =>{
     k.addEventListener('click', function(e){
@@ -109,4 +133,16 @@ cleares.addEventListener('click', function(){
 const dots = document.querySelector('.dot');
 dots.addEventListener('click', function(){
     decimal();
+});
+const mc = document.querySelector('.nums');
+mc.addEventListener('click', function(){
+    MC();
+});
+const per = document.querySelector('.per');
+per.addEventListener('click', function(){
+    percentage();
+});
+const change = document.querySelector('.plusOrMinus');
+change.addEventListener('click', function(){
+    sign();
 });
