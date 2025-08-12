@@ -9,13 +9,13 @@ function operate(num1, operator, num2){
     if(operator == '+'){
         return firstNumber + secondNumber;
     }
-    else if(operator == '*'){
+    else if(operator == '*' || operator == '×'){
         return firstNumber * secondNumber;
     }
     else if(operator == '-'){
         return firstNumber - secondNumber;
     }
-    else if(operator == '/'){
+    else if(operator == '/' || operator == '÷'){
         if(secondNumber == 0){
             return'Error!, you can not divide number with zero';
         } else{
