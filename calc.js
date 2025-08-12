@@ -17,7 +17,7 @@ function operate(num1, operator, num2){
     }
     else if(operator == '/' || operator == '÷'){
         if(secondNumber == 0){
-            return'Error!, you can not divide number with zero';
+            return'Error!';
         } else{
             return firstNumber/secondNumber;
         }
