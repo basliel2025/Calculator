@@ -1,0 +1,68 @@
+.container{
+    height: 440px;
+    width: 320px;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+button{
+    gap: 6px;
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    color: rgb(71, 71, 71);
+    border-radius: 35px;
+    box-shadow: 3px;
+}
+.display{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 280px;
+    height: 45px;
+    margin: 8px;
+    padding: 12px;
+    color: white;
+    background-color: rgb(129, 129, 129);
+    box-shadow: 18px;
+    border: 1px solid rgb(165, 163, 163);
+}
+.op{
+    text-align: center;
+    background-color: darkorange;
+    color: white;
+
+}
+.clear{
+    color: white;
+    background-color: rgb(94, 91, 91);
+}
+.per{
+    color: white;
+    background-color: rgb(94, 91, 91);
+}
+.plusOrMinus{
+    color: white;
+    background-color: rgb(94, 91, 91);
+}
+.dot{
+    background-color: rgb(54, 53, 53);
+    color:white;
+}
+.num{
+    background-color: rgb(54, 53, 53);
+    color:white;
+}
+.nums{
+    background-color: rgb(54, 53, 53);
+    color:white;
+}
+button:hover{
+    transform: translateY(-3px);     
+}
