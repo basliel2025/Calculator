@@ -14,7 +14,6 @@ button{
     font-size: 35px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
     color: rgb(71, 71, 71);
     border-radius: 35px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -72,4 +71,9 @@ button:hover{
 .op:active{
     background-color: orange;
     filter: brightness(0.9);
+}
+.equal{
+    text-align: center;
+    background-color: darkorange;
+    color: white;
 }
