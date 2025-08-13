@@ -1,4 +1,6 @@
 Calculator Web Application
+
+
 Overview
 This repository contains a fully functional calculator web application developed using HTML, CSS, and JavaScript. The calculator is designed to perform basic arithmetic operations, including addition, subtraction, multiplication, and division, while incorporating advanced features such as percentage calculations, positive/negative number toggling, and decimal input. The application provides a clean, user-friendly interface with robust error handling to ensure a seamless user experience. It is suitable for performing everyday calculations in a web browser.
 Features
