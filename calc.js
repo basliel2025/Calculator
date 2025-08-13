@@ -26,9 +26,13 @@ function operate(num1, operator, num2){
         return "Error!";
     }
 }
-const element = document.querySelector('.display');
+const up = document.querySelector('.smallDisplay');
+function SmallDisplayUpdate(newValue){
+    up.innerText = newValue;
+}
+const element = document.querySelector('.main');
 function displayUpdate(value){
-    element.value = value;
+    element.innerText = value;
 }
 function clicked(number){
     if(displayReset === true){
@@ -44,15 +48,19 @@ function clicked(number){
     displayReset = false;
 }
 function operators(op){
-    operatord = op;
-    if(firstNumber !== null){
+    if(firstNumber === null){
+        firstNumber= parseFloat(current);
+        operatord = op;
+        SmallDisplayUpdate(firstNumber + ' ' + operatord);
+        displayReset = true;
+    }
+     else if(firstNumber !== null){
         const result = operate(firstNumber,operatord, parseFloat(current));
         firstNumber = result;
+        operatord = op;
+        SmallDisplayUpdate(firstNumber + " " + operatord);
         displayReset = true;
         displayUpdate(result);
-    }
-    else{
-        firstNumber = parseFloat(current);
     }
 }
 function percentage(){
@@ -65,6 +73,7 @@ function percentage(){
    displayUpdate(current);
 }
 function equalsTo(){
+    SmallDisplayUpdate('');
     if(firstNumber!== null && operatord!== null){
         result = operate(firstNumber,operatord,parseFloat(current));
         displayUpdate(result);
@@ -74,6 +83,7 @@ function equalsTo(){
     }
 }
 function clear(){
+    SmallDisplayUpdate('');
     current = '0';
     firstNumber = null;
     operatord = null;
